@@ -15,7 +15,7 @@ module.exports = {
         attributes.nama_rapot = params.nama_rapot;
         attributes.kode_rapot = attributes.nama_rapot.split(' ').map(el=> el[0]).join('');
         let result = await Rapot.create(attributes).fetch();
-        return res.json({status: 200, data: result});
+        return result ? res.json({status: 200, data: result}) :  res.json({status: 400, msg: 'Input Data Gagal'});
       }else{
         return res.json({status: 400, msg: 'Input Kosong'});
       }
