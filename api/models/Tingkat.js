@@ -17,7 +17,7 @@ module.exports = {
       autoIncrement: true,
       unique: true,
     },
-    nama: {
+    nama_tingkat: {
       type: 'string',
       required: true,
     },

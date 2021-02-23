@@ -52,6 +52,8 @@ module.exports = {
         attributes.kode_rapot = attributes.nama_rapot.split(' ').map(el => el[0]).join('');
         let result = await Rapot.updateOne({id: params.id}).set(attributes);
         return result ? res.json({status: 200, data: result}) : res.json({status: 400, msg: 'Update Gagal'});
+      }else{
+        return res.json({status: 400, msg: 'Tidak Ada Data Yang Diupdate'});
       }
     }catch(e){
       return res.serverError(e);
